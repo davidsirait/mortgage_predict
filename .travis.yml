@@ -1,6 +1,11 @@
 language: python
 dist: xenial
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - pytest
+- pytest
+deploy:
+  - provider: heroku
+    api_key:
+      secure: ogeXZDCa5YqkfXCgHQPNN5sHSc2SyEY/SXgr3eNEiW3RMWm25GTUYUgfcG0Il5NEaT5TNHq2uXOHgLL0syZCvAtGFVY55rz9PvRwq9jafxWxZVtxRTSkHctECOF+DYHqQEtawobdsrqM2xwchEbiLo2dwFLRJbi48NcfFTP44xYRw15uTDwjKTBsGM3ASE5GjYlV1eyN5uxSYXCDFej3rphk08H78DwB9phkJb1u9YELDRd+9Fhb49PN0d7qZIFr/kodhyw1ey+pF6/oDGxYXg6otkqky3YvEuUxMGqwJ7oIj5E3ZpDyhBjjjzmneNmBrwTuiS5JgfV5mnAy8E8oWXAz/CaXccHiIjFgasgg8cVc2wgsVdjzYbSaJ1dfQ6sVfZbfyp6Ufs9/UNed6s1ibUmC7WuIX72HcGZDADfkwlVZsPKIuMgQtybgxOhd4iFHNB2rYto3SwHvT6kdCKOL1OpicqSE4gfcTsUuVLmV7UrfVdmRnC/k+b0u3AieOIlkUpgEb3Yd45e33ySOtDYjh2kVpxhsQwfSkasL462aVOfvk9YGJqGAYTNRGFvfm+pLXoHR3VtM972D2H/GM9qCKnJlIJyxN1pzKssfU5h06UdLTPM346oOtykFlu1IOpwdI19TlP+60yAdznxH3SyVBgY/1cTm4V5Rm3LwRdLVeaU=
+    app: mortgage-predict-app
