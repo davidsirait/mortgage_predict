@@ -63,7 +63,7 @@ def Predict():
         return render_template('success.html', results=results)
 
 @app.route('/')
-@app.route('/index')
+@app.route('/home')
 def Homepage():
     return render_template('index.html')
 
