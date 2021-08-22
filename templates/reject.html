@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reject Application</title>
+
+
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type= "text/css">
+    <link href="{{ url_for('static', filename='css/demo.css') }}" rel="stylesheet" type= "text/css">
+
+</head>
+<body>
+
+<div class="ScriptTop">
+    <div class="rt-container">
+        <div class="col-rt-4" id="float-right">
+
+            <!-- Ad Here -->
+
+        </div>
+    </div>
+</div>
+
+<header class="ScriptHeader2">
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1>We are sorry...</h1>
+                <p>Unfortunately we cannot proceed with your loan application  at the moment </p>
+
+                 <div class="container mt-5">
+                <p id='message'>
+                    </br>
+                  Below is your current credit scoring calculation </br>
+                    <h3>Name : {{ results.names }} </h3>
+                    <h3>Credit Score : {{ results.score }} </h3>
+                </p>
+                <a href="{{ url_for('Homepage') }}"  id="contBtn2">Back to Homepage</a>
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="rt-container">
+          <div class="col-mt-12">
+              <div class="Scriptcontent">
+
+<!-- partial:index.partial.html -->
+
+<!-- partial -->
+
+
+    		</div>
+		</div>
+    </div>
+    </header>
+
+
+
+    <!-- Analytics -->
+
+	</body>
+</html>

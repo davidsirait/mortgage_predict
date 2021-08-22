@@ -1,0 +1,161 @@
+<html class="no-js" lang="en">
+<head>
+    <title> Credit Scoring Demo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form > input').keyup(function() {
+
+                var empty = false;
+                $('form > input').each(function() {
+                    if ($(this).val() == '') {
+                        empty = true;
+                    }
+                });
+
+                if (empty) {
+                    $('#submit').attr('disabled', 'disabled');
+                } else {
+                    $('#submit').removeAttr('disabled');
+                }
+            });
+        });
+
+
+        $(document).ready(function() {
+            $("#submit").click(function() {
+              // disable button
+              $(this).prop("disabled", true);
+              // add spinner to button
+              $(this).html(
+                `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
+              );
+            });
+        });
+
+        $(document).ready(function() {
+        $("#submit").click(
+            function(){
+              Swal.fire({
+
+                icon: 'success',
+                title: 'Submitted',
+                showConfirmButton: true,
+                timer: 20000
+              })
+            }
+          );
+         });
+
+    </script>
+
+    <style>
+        .container {
+            max-width: 550px;
+        }
+
+        .has-error label,
+        .has-error input,
+        .has-error textarea {
+            color: red;
+            border-color: red;
+        }
+
+        .list-unstyled li {
+            font-size: 13px;
+            padding: 4px 0 0;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <h3 class="card-header text-center">Apply now for KPR Bank Millenials </h3>
+            <p></p>
+            <div class="card-body">
+                <form role="form" id="form" name='requestform' method="post" action="{{ url_for('Predict') }}"  data-toggle="validator">
+
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name='names' class="form-control" data-error="You must have a name." id="inputName" placeholder="Name" required>
+
+                        <!-- Error -->
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Monthly Income</label>
+                        <input type="number" class="form-control" name="income" maxlength="100" minlength="3"
+                             id="income" placeholder="Monthly Income" required>
+
+                        <!-- Error -->
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Loan Amount</label>
+                        <input type="number" class="form-control" name="loan" maxlength="100" minlength="3"
+                             id="loan" placeholder="Loan Amount" required>
+
+                        <!-- Error -->
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proposed Tenor</label>
+                        <input type="number" class="form-control" name="tenor" maxlength="3" minlength="1"
+                             id="tenor" placeholder="Proposed Tenor in months" required>
+
+                        <!-- Error -->
+                        <div class="help-block with-errors"></div>
+                    </div>
+
+                    <div class="form-group"> <label>Select Gender </label> <select id="gender" name="gender" class="form-control" required="required" data-error="Please specify your gender.">
+                                                <option value="" selected disabled>--Please select your gender--</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select> </div>
+
+                    <div class="form-group"> <label>Education Status </label> <select id="education" name="education" class="form-control" required="required" data-error="Please specify your education.">
+                                                <option value="" selected disabled>--Please select your last education--</option>
+                                                <option>SMP</option>
+                                                <option>SMA</option>
+                                                <option>SMK</option>
+                                                <option>D3</option>
+                                                <option>D4</option>
+                                                <option>S1</option>
+                                                <option>S2</option>
+                                                <option>S3</option>
+                                            </select> </div>
+
+                    <div class="form-group"> <label>Are you Married ?  </label> <select id="married" name="married" class="form-control" required="required" data-error="Please specify your marriage status.">
+                                                <option value="" selected disabled>--Please specify if you are married--</option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select> </div>
+
+                    <div class="form-group"> <label>Do you have Credit Card ?  </label> <select id="cc" name="cc" class="form-control" required="required" data-error="Please specify if you have cc.">
+                                                <option value="" selected disabled>--Please specify if you have cc or not--</option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select> </div>
+
+                    <div class="form-group">
+                        <button type="submit" id=submit class="btn btn-primary btn-block">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
