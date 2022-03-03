@@ -5,9 +5,8 @@ install:
 script:
 - pytest
 before_deploy:
-  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
+- rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.8.0
 deploy:
-  - provider: heroku
-    api_key:
-      secure:  pOGQOBlI/lWHsjsWN07g+y4otNw9UYev3EHO9+DxuEJMYH9TmdvO+j5LEaC7QWuWmBjo0zl/VeYqLRt/jcu1XiI6MAmIpTHZ/b0PdlzM7D+rqEghIw1XVs38qGPEqfBDIfJCEHE7LwurX9F3oN6KlfDjrX50F/bzGCnyIG9xcuu0EzsycAZbZwvO4+vvTMwUp89Edmxs7h2KkqvpRxWSWHZeR22DBxrMHxBr9yhfg9QJsVip7vfIoEkmvHPechLdFCmo1JLTjzS/Adma4iZ8QUVeL2KV7L6IyCdVYnTYKn14wtci7uhE/FY6R7L7nhgVI1y+Ow6zMeMBVm72a2G4m2cE93GXBbz68rih/83/Usu9JEjaMX/3oMriLe98p3QHD8VxOzJzyilCQtiByi1lD9udBTbzD0BKkm5kNUqv6xGp6VSquxMmeSVD+yetNatADKPyNTNvF8tBiFFUQ+JgqJcMemQqrsxx9J6UeAnapV0A8ngoUFmQBv3CkvdtaTIDxll2hX+l0Bmhi80ljpbrb73bybnxQ0QQrDLyL9PTaPfUt8MpuVsC2NcbddSFIdWxC/SSJ1qBnB0sVdHOetSTL/3VpNWguDWv6Ai6rlGaHtfKhbXp3AXb4lX8cCL6yN8KygAKYEHvo2vBVXB+3w2Hg6YUqd/YeIhVxIpvxOk1ZME=
-    app : mortgage-predict
+  api_key:
+    secure: EAImtEOJpqdNYiunX75F49n/kQFoP3p8wCZRWAHN1u2mFMJY05uTR53EdA+ZurGZo7exR0DPbhoM7jp47vRPT6x9LVPt3YGnS/+pYg5qfgtJFe/4Hn6vvf6CTjlQB8OWnm3cmdiTScqBUsJL3mqObtbXiHimt0d0qi8SX8RsM53/iWJPz4OMfSrq3iun+72hCiGojd1qd75d0/SPOHYHX6noIUkzQzin9c9uRw4Lg7ADCtmBynIRHWLEHrXh4MvFbZElhU9Pr1Xhr/5LIoDqfCh6lohqMsc5C4zgLs8P7WsXzhRfpJmEXNbok5QsA+XaZLTk4KyH7526WcktfCasMfN7qNSdfi01zF6mvJiFf+tuMcQBZ2BOyzIEooofUqRmAXH0UCtyZNQv3ifjqSM0I+Vz+LWB18gavv69qfB5UzOsSG0VnIoT0U5yv2A18/XW4JxtIxEK9/wiRQdaRNALw8COxyoe1YXc2pdzo+Xjed3Chy2+fr1/lhHFoNMOdrGFNjoddqDgKzi0i6FuLRN29nVQ9gTEXjFjnPqZQE5XYkY1mkHQWFnT2un/oNqs9NxRcFq4Tb89RwdpM7aZtIqIMoWDZzd7ANWEKSaiQ2SdDkDvtgXRLUyVpfigs0LPB5VGo3z3ZV8H/nu1B1nMc3PKPdcWXB2vbHVdshwABb1/4jc=
+   app: mortgage-predict
