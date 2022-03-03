@@ -1,10 +1,10 @@
 from flask import Flask
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 from flask import render_template, jsonify, url_for
 import pandas as pd
 import numpy as np
 import pickle
-import datetime
+import os
 import time
 
 
@@ -55,7 +55,7 @@ def Predict():
 
     score = model.predict_proba(cek_df)[:, 1] * 100
     results = {'names': cek['names'], 'score': int(score)}
-    time.sleep(3)
+    time.sleep(2)
 
     if score < 55 :
         return render_template('reject.html', results=results)
@@ -66,6 +66,10 @@ def Predict():
 @app.route('/home')
 def Homepage():
     return render_template('index.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return app.send_static_file('favicon.ico')
 
 
 if __name__=='__main__':
